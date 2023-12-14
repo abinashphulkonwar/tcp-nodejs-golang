@@ -18,6 +18,7 @@ client.write(JSON.stringify({ Type: "hiii", Data: "data", id: randomUUID() }));
 client.on("data", (data) => {
   console.log(data.toString());
   const payload = data.toString();
+  
   if (isJSON(payload)) {
     const { type, data } = JSON.parse(payload);
     if (type === "message") {
